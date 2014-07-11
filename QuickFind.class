@@ -1,0 +1,33 @@
+package unionfind;
+import java.util.*;
+
+public class QuickFind{
+
+	private vector v();
+	private Integer nVertices; 
+
+	public static void QuickFind(Integer x){
+		nVertices = x;
+		
+		vector myVec(nVertices);
+		for (Integer i = 0; i < 10; i++){
+			v[i] = i;
+		}
+		
+		v = myVec;
+		
+	}
+
+	public static void union(Integer p, Integer q){
+		Integer temp1 = v[p];
+		Integer temp2 = v[q];
+		for (int i = 0; i < nVertices; i++) {
+			if (v[i] == temp1) v[i] = temp2;
+		}
+	}
+
+	public static boolean isConnected(Integer p, Integer q){
+		return (v[p] == v[q]);
+	}
+	
+}
