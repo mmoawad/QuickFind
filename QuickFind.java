@@ -6,39 +6,36 @@ import java.io.*;
 //import QuickFind;
 
 public class QuickFind {
-	
-	// class info<
-	public static Vector v = new Vector();
-	public static Integer nVertices; 
 
-	public static void QuickFind(Integer x){
+	// class info<
+	public Vector<Integer> v;
+	public Integer nVertices; 
+
+	public QuickFind(Integer x){
 		nVertices = x;
-		
-		Vector myVec = new Vector(nVertices);
+		v = new Vector<Integer>(nVertices);
 		for (Integer i = 0; i < 10; i++){
 			v.set(i,i);
 		}
-		
-		v = myVec;
-		
 	}
 
-	public static void union(Integer p, Integer q){
-		Integer temp1 = (int) v.elementAt(p);
-		Integer temp2 = (int) v.elementAt(q);
+	public void union(Integer p, Integer q){
+		Integer temp1 = v.elementAt(p);
+		Integer temp2 = v.elementAt(q);
 		for (int i = 0; i < nVertices; i++) {
-			if (v.elementAt(i) == temp1) v.set(i,temp2);
+			if (v.elementAt(i) == temp1)
+				v.set(i,temp2);
 		}
 	}
 
-	public static boolean isConnected(Integer p, Integer q){
+	public boolean isConnected(Integer p, Integer q){
 		return (v.elementAt(p) == v.elementAt(q));
 	}
 	// class info>
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		QuickFind myG = new QuickFind(10);
-		BufferedReader myBR = new BufferedReader(new FileReader("Data"));
+		BufferedReader myBr = new BufferedReader(new FileReader("Data"));
 		String line = null;
 		line = myBr.readLine();
 		Integer num = Integer.valueOf(line);
