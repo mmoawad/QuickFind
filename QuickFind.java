@@ -1,4 +1,3 @@
-package unionfind;
 import java.util.*;
 //import java.io.BufferedReader;
 import java.io.*;
@@ -15,7 +14,7 @@ public class QuickFind {
 		nVertices = x;
 		v = new Vector<Integer>(nVertices);
 		for (Integer i = 0; i < 10; i++){
-			v.set(i,i);
+			v.add(i);
 		}
 	}
 
